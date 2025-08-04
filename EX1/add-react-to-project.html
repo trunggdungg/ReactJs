@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReacJs</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!--
+    1 . ở bản react 17 thì cú pháp sẽ là ReactDOM.render(reactElement, rootElement);
+    2 . ở bản react 18 thì cú pháp sẽ là ReactDOM.createRoot(rootElement).render(reactElement);
+    3. khi tạo 1 reactElement thì sẽ có các phần tử như sau:
+       - React.createElement(type, props, ...children)
+       - type: là tên của phần tử (ví dụ: 'div', 'h1', 'p', 'span', 'ul', 'li', ...)
+       - props: là các thuộc tính của phần tử (ví dụ: className, style, id, ...)
+       - children: là các phần tử con của phần tử hiện tại
+    -->
+    <h1>Add react to website</h1>
+    <div id="root"></div>
+    <!-- 
+    <script>
+        const divEl = document.createElement('div');
+        divEl.className = "post-item";
+       
+        divEl.style = "color: red; font-size: 20px; background-color: yellow; padding: 10px; border-radius: 5px;";
+        
+        // add h2,p to divEl
+        const h2 = document.createElement('h2');
+        h2.textContent = "Hello, DOM!";
+        h2.title = "This is a title";
+        const p = document.createElement('p');
+        p.textContent = "This is a simple React component added to the page.";
+        divEl.appendChild(h2);
+        divEl.appendChild(p);
+
+        document.body.appendChild(divEl);
+
+        // user react
+        const divReact = React.createElement('div',{
+            className: "post-item2"
+
+        },
+            React.createElement('h2', null, 'Hello, React!'),
+            React.createElement('p', null, 'This is a simple React component added to the page.')
+        );
+        
+        console.log(divReact);
+
+        const root = document.getElementById('root');
+        // ReactDOM.render(divReact, root );
+
+
+        // ul li,
+        const ulEl = React.createElement(
+            'ul',
+            {
+
+            },
+            React.createElement('li', null, 'Item 1'),
+            React.createElement('li', null, 'Item 2'),
+        )
+// react17
+        // ReactDOM.render(
+        //     ulEl,
+        //     root
+        // )
+        // react18
+        const rootReact = ReactDOM.createRoot(root);
+        rootReact.render(
+            ulEl
+        );
+
+       
+    </script>
+     -->
+
+    <script type="text/babel">
+        // jsx
+        const jsxElement = (
+            <div className="post-item3" style={{ color: 'blue', fontSize: '18px', backgroundColor: 'lightgray', padding: '10px', borderRadius: '5px' }}>
+                <h2>Hello, JSX!</h2>
+                <p>This is a simple React component using JSX syntax.</p>
+            </div>
+        );
+
+        const reactJsx = ReactDOM.createRoot(document.getElementById('root'));
+        reactJsx.render(jsxElement)
+    </script>
+
+
+
+    <!-- cách để render ra 2 phần tử -->
+    <!-- có thể dùng cú pháp React.Fragment -->
+     <!-- ví dụ render thẻ h1 và h2 -->
+    <script type="text/babel">
+        const fragmentElement = (
+            <React.Fragment>
+                <h1>Fragment Example</h1>
+                <h2>This is a fragment example</h2>
+            </React.Fragment>
+        );
+
+        const rootFragment = ReactDOM.createRoot(document.getElementById('root'));
+        rootFragment.render(fragmentElement);
+
+        // hoặc tạo giống tạo React element
+        const fragmentElement2 = React.createElement(
+            React.Fragment,
+            null,
+            React.createElement('h1', null, 'Fragment Example 2'),
+            React.createElement('h2', null, 'This is a fragment example 2')
+        );
+
+        const rootFragment2 = ReactDOM.createRoot(document.getElementById('root'));
+        rootFragment2.render(fragmentElement2);
+    </script>
+</body>
+
+</html>

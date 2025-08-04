@@ -1,0 +1,13 @@
+.btn{
+    color: brown;
+    background-color: lightblue;
+}
+.btn:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+.primary{
+    background-color: blue;
+    color: white;
+}

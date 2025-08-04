@@ -1,0 +1,4 @@
+{
+    "github.copilot.renameSuggestions.triggerAutomatically": true,
+    "github.copilot.chat.edits.suggestRelatedFilesForTests": true
+}
